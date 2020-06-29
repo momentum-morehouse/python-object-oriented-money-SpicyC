@@ -86,9 +86,9 @@ class Money:
         return f"<Money {str(self)}>"
 
     def __eq__(self, other):
-        """
-        All fields must be equal to for the objects to be equal.
-        """
+#        """
+#        All fields must be equal to for the objects to be equal.
+#        """
 
         return (type(self) == type(other) and self.amount == other.amount
                 and self.currency == other.currency)
@@ -120,11 +120,14 @@ class Money:
 #        pass
 
     def mul(self, multiplier):
-        if self.currencey == other.currency:
-            return Money(
-                amount=self.amount * other.amount, currency=self.currency)
+#      breakpoint()
+      product = self.amount * multiplier
+      newMoney = Money(product, self.currency)
+      return newMoney
+#      if self.currency == other.currency:
+#      return Money(self.amount * multiplier)
 
-        raise DifferentCurrencyError('Cannot multiply two Money ' + 'instances with different currencies.')
+#        raise DifferentCurrencyError('Cannot multiply two Money ' + 'instances with different currencies.')
 
 #        """
 #        Multiply a money object by a number to get a new money object.
@@ -132,15 +135,19 @@ class Money:
 #        pass
 
 #    def div(self, divisor):
-        """
-        Divide a money object by a number to get a new money object.
-        """
+        # """
+        # Divide a money object by a number to get a new money object.
+        # """
 
 
 #        pass
-def div(self, divisor):
-    if self.currencey == other.currency:
-        return Money(amount=self.amount / other.amount, currency=self.currency)
+    def div(self, divisor):
+        quotient = self.amount / divisor
+        divMoney = Money(quotient, self.currency)
+        return divMoney
 
-    raise DifferentCurrencyError('Cannot divide two Money ' +
-                                 'instances with different currencies.')
+#    if self.currencey == other.currency:
+#        return Money(amount=self.amount / other.amount, currency=self.currency)
+
+#    raise DifferentCurrencyError('Cannot divide two Money ' +
+#'instances with different currencies.')
